@@ -1,0 +1,42 @@
+<div class="container">
+
+    <div *ngIf="errormsg" class="alert alert-danger alert-dismissible fade show" role="alert">
+        <strong>{{errormsg}}</strong>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+
+    <div *ngIf="successmsg" class="alert alert-success alert-dismissible fade show" role="alert">
+        <strong>{{successmsg}}</strong>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>  
+
+    <form [formGroup]="userform" >
+
+        <div class="container">
+
+            <div class="col-lg-4 mt-2">
+                <input type="text" class="form-control" formControlName="Username" placeholder="Enter Username">
+            </div>
+
+            <div class="col-lg-4 mt-2">
+                <input type="password" class="form-control" formControlName="password" placeholder="Enter  password">
+            </div>
+
+            <div class="col-lg-4 mt-2">
+                <input type="date" class="form-control" formControlName="DOB" placeholder="Enter DOB">
+            </div>
+            <div class="col-lg-4 mt-2">
+                <button *ngIf="!getparamid"  (clicK)="userSumbit()" class="btn btn-primary btn -sm">Create</button>&nbsp;
+                <button  *ngIf="getparamid" (click)="userUpdate()" class="btn btn-dark btn -sm">Update</button>
+
+            </div>      
+
+
+        </div>
+
+    </form>
+</div>
